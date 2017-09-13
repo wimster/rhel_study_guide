@@ -142,7 +142,7 @@ Package: postfix
 Conf File: /etc/postfix/main.cf
 Utility: postconf <value>  queries config
 Values: MMMRIL (acronym)
-Command Line Edit: postfix -e ‘setting = value’
+Command Line Edit: postconf -e ‘setting = value’
 
 Example Settings
 myorigin: 		<myhostname>.example.com:if emails are forwarded
@@ -152,12 +152,12 @@ relay host: 		Server you ‘send’ email on to for processing
 inet_interface: 	loopback-only
 local_transport: 	disabled; this server doesn’t really receive email
 
-postfix -e ‘myorigin=server.example.com’
-postfix -e ‘mydestination=‘
-postfix -e ‘mynetworks=192.x.x.y.24’
-postfix -e ‘relayhost=‘hostname.example.com’
-postfix -e ‘inet_interface=loopback-only’
-postfix -e ‘local_transport=error: local transport disabled’
+postconf -e ‘myorigin=server.example.com’
+postconf -e ‘mydestination=‘
+postconf -e ‘mynetworks=192.x.x.y.24’
+postconf -e ‘relayhost=‘hostname.example.com’
+postconf -e ‘inet_interface=loopback-only’
+postconf -e ‘local_transport=error: local transport disabled’
 
 Test: mutt -f imaps://<server>.example.com
 username/password.
